@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GetPostConverter {
 
-    public ResponseEntity<GetPostResponse> convertToDto(PostEntity postEntity) {
+    public GetPostResponse convertToDto(PostEntity postEntity) {
 
         GetPostResponse result = new GetPostResponse();
 
@@ -17,7 +17,7 @@ public class GetPostConverter {
         result.setImagePath(postEntity.getImagePath());
         result.setBottomText(postEntity.getBottomText());
 
-        return ResponseEntity.ok(result);
+        return result;
 
 
     }

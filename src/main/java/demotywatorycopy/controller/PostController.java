@@ -2,6 +2,7 @@ package demotywatorycopy.controller;
 
 import demotywatorycopy.model.dto.post.CreatePostRequest;
 import demotywatorycopy.model.dto.post.CreatePostResponse;
+import demotywatorycopy.model.dto.post.GetPostResponse;
 import demotywatorycopy.service.post.CreatePostService;
 import demotywatorycopy.service.post.GetPostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,16 +22,15 @@ public class PostController {
     private GetPostService getPostService;
 
     @PostMapping
-//    @ResponseStatus(value = HttpStatus.CREATED, reason = "Post Created")
     public ResponseEntity<CreatePostResponse> createNewPost(@Valid @RequestBody CreatePostRequest postToAdd) {
         return new ResponseEntity<CreatePostResponse>(createPostService.addPost(postToAdd),HttpStatus.CREATED);
     }
 
-//    @GetMapping
-//    @ResponseStatus(value = HttpStatus.OK, reason = "Posts Recieved")
-//    public List<Post> getAllPosts() {
-//        return getPostService.getAllPosts();
-//    }
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<GetPostResponse> getByID(@PathVariable(name = "id") Long id) {
+        return new ResponseEntity<GetPostResponse>(getPostService.getById(id),HttpStatus.OK);
+    }
+
 
 
 

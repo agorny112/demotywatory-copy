@@ -17,7 +17,7 @@ public class GetPostService {
     @Autowired
     private GetPostConverter getPostConverter;
 
-    public ResponseEntity<GetPostResponse> getById(Long id) {
+    public GetPostResponse getById(Long id) {
 
         PostEntity retrievedPost = postRepository.findById(id).orElseThrow();
         return getPostConverter.convertToDto(retrievedPost);
