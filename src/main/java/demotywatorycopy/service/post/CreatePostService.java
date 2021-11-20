@@ -3,7 +3,7 @@ package demotywatorycopy.service.post;
 import demotywatorycopy.model.dto.post.CreatePostRequest;
 import demotywatorycopy.model.dto.post.CreatePostResponse;
 import demotywatorycopy.repository.PostRepository;
-import demotywatorycopy.converter.CreatePostsConverter;
+import demotywatorycopy.service.converter.CreatePostsConverter;
 import demotywatorycopy.model.dao.PostEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

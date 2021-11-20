@@ -1,10 +1,11 @@
 package demotywatorycopy.model.dto.post;
 
-import lombok.Data;
 import lombok.Getter;
+import lombok.Setter;
 
 
 @Getter
+@Setter
 public class GetPostResponse {
 
     private Long id;
