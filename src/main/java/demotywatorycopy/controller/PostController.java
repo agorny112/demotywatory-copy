@@ -2,6 +2,7 @@ package demotywatorycopy.controller;
 
 import demotywatorycopy.model.dto.post.CreatePostRequest;
 import demotywatorycopy.model.dto.post.CreatePostResponse;
+import demotywatorycopy.model.dto.post.GetAllPostsResponse;
 import demotywatorycopy.model.dto.post.GetPostResponse;
 import demotywatorycopy.service.post.CreatePostService;
 import demotywatorycopy.service.post.GetPostService;
@@ -11,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api/posts")
@@ -29,6 +31,12 @@ public class PostController {
     @GetMapping(path = "/{id}")
     public ResponseEntity<GetPostResponse> getByID(@PathVariable(name = "id") Long id) {
         return new ResponseEntity<GetPostResponse>(getPostService.getById(id),HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<GetAllPostsResponse> getAllPosts(){
+        return new ResponseEntity<GetAllPostsResponse>(getPostService.getAllPosts(),HttpStatus.OK);
+
     }
 
 

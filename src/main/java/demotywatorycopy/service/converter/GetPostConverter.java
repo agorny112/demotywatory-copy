@@ -19,6 +19,5 @@ public class GetPostConverter {
 
         return result;
 
-
     }
 }
