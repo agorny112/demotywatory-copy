@@ -1,11 +1,9 @@
 package demotywatorycopy.controller;
 
-import demotywatorycopy.model.dto.post.CreatePostRequest;
-import demotywatorycopy.model.dto.post.CreatePostResponse;
-import demotywatorycopy.model.dto.post.GetAllPostsResponse;
-import demotywatorycopy.model.dto.post.GetPostResponse;
+import demotywatorycopy.model.dto.post.*;
 import demotywatorycopy.service.post.CreatePostService;
 import demotywatorycopy.service.post.GetPostService;
+import demotywatorycopy.service.post.UpdatePostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +20,8 @@ public class PostController {
     private CreatePostService createPostService;
     @Autowired
     private GetPostService getPostService;
+    @Autowired
+    private UpdatePostService updatePostService;
 
     @PostMapping
     public ResponseEntity<CreatePostResponse> createNewPost(@Valid @RequestBody CreatePostRequest postToAdd) {
@@ -35,8 +35,12 @@ public class PostController {
 
     @GetMapping
     public ResponseEntity<GetAllPostsResponse> getAllPosts(){
-        return new ResponseEntity<GetAllPostsResponse>(getPostService.getAllPosts(),HttpStatus.OK);
+        return new ResponseEntity<>(getPostService.getAllPosts(),HttpStatus.OK);
 
+    }
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<UpdatePostResponse> updatePost(@Valid @RequestBody UpdatePostRequest postToUpdate,@PathVariable(name = "id") Long id) {
+        return new ResponseEntity<>(updatePostService.updatePost(postToUpdate,id),HttpStatus.OK);
     }
 
 

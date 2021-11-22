@@ -5,9 +5,9 @@ import lombok.Data;
 import javax.validation.constraints.NotNull;
 
 @Data
-public class CreatePostRequest {
+public class UpdatePostRequest {
 
-    @NotNull
+
     private String topText;
     @NotNull
     private String imagePath;

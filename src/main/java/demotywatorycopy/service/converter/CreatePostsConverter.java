@@ -22,9 +22,9 @@ public class CreatePostsConverter {
 
         CreatePostResponse result = new CreatePostResponse();
         result.setId(postEntityToConvert.getId());
-        result.setBottomText(postEntityToConvert.getBottomText());
         result.setTopText(postEntityToConvert.getTopText());
         result.setImagePath(postEntityToConvert.getImagePath());
+        result.setBottomText(postEntityToConvert.getBottomText());
 
         return result;
     }
